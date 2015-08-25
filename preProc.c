@@ -23,5 +23,9 @@ int main() {
 	fclose(f);
 	fclose(g);
 
+	FILE *h;
+	h = fopen("courseAtt.txt", "w");
+	fprintf(h,"301,0,0\n331,0,0\n341,0,0\n343,0,0\n344,0,0\n");
+	fclose(h);
 	return 0;
 }
