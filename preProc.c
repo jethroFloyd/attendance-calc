@@ -19,4 +19,9 @@ int main() {
 		fprintf(g,"\tcourse[%d].days[1] = %d;\n", i, d2);
 		fprintf(g,"\tcourse[%d].days[2] = %d;\n", i, d3);
 	}
+
+	fclose(f);
+	fclose(g);
+
+	return 0;
 }
