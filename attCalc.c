@@ -19,7 +19,7 @@ int main() {
 	weekDay = dayOfWeek(day,month,year);
 
 	Course course[5];
-	
+
 	course[0].courseCode = 301;
 	course[0].days[0] = 2;
 	course[0].days[1] = 3;
@@ -41,8 +41,47 @@ int main() {
 	course[4].days[1] = 4;
 	course[4].days[2] = 5;
 
+	FILE *f;
+	f = fopen("courseAtt.txt", "r");
+	int i,j;
+	int garbage;
 
-	printf("%d\n", course[0].days[0]);
+	for (i=0;i<5;i++){
+		fscanf(f, "%d,%d,%d\n", &garbage;course[i].classesHeld, course[i].classesAttended);		
+	}
+
+	char att;
+	for (i=0; i<5; i++) {
+		for (j=0; j<3; j++) {
+			if (course[i].days[j] == weekDay) {
+				printf("Did you attend CS%d today? Please enter Y if yes. The system assumes No otherwise.\n", course[i].courseCode);
+				scanf("%c", &att);
+				if (att == "Y" || att == "y") {
+					course[i].classesAttended += 1;
+				}
+
+				course[i].classesHeld += 1;
+
+			}
+		}
+	}
+
+	printf ("Your current attendance statistics: \n");
+	for (i=0; i<5; i++) {
+		printf("Course: CS%d\tAttendance Percentage:%f\n", course[i].courseCode, (course[i].classesAttended/course[i].classesHeld));
+	}
+
+	fclose(f);
+	FILE *fp;
+	fp = fopen("courseAtt.txt", "w");
+	for (i=0;i<5;i++){
+		fprintf(fp, "%d,%d,%d\n", course[i].courseCode ;course[i].classesHeld, course[i].classesAttended);		
+	}
+
+	fclose(fp);
+
+
+	printf("%d\n", course[0].days[1]);
 
 }
 
