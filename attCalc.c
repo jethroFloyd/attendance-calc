@@ -77,7 +77,7 @@ int main() {
 	printf ("Your current attendance statistics: \n");
 	for (i=0; i<5; i++) {
 		coursePercentage = ((float) course[i].classesAttended)/ ((float) course[i].classesHeld);
-		printf ("%f\n",coursePercentage);
+		// printf ("%f\n",coursePercentage);
 		coursePercentage *= 100;
 		printf("Course: CS%d\tAttendance Percentage:%f\n", course[i].courseCode, coursePercentage);
 	}
